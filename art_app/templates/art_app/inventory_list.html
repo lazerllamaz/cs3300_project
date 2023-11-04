@@ -1,0 +1,17 @@
+{% extends 'art_app/base_template.html' %}
+
+
+{% block content %}
+    <h1>Inventory List</h1>
+    {% if inventory_list %}
+        <ul>
+        {% for inventory in inventory_list %}
+            <li>
+            <a href="/{{ inventory.get_absolute_url }}/">{{ inventory.title }}</a>
+            </li>
+        {% endfor %}
+        </ul>
+    {% else %}
+        <p>This student has no Portfolios.</p>
+    {% endif %}
+{% endblock %}

@@ -12,3 +12,15 @@ from .forms import ItemForm
 # Default view /home/
 def index(request):
     return render(request, "art_app/index.html")
+
+class InventoryListView(generic.ListView):
+    model = Inventory
+
+class InventoryDetailView(generic.DetailView):
+    model = Inventory
+
+class ItemListView(generic.ListView):
+    model = Item
+class ItemDetailView(generic.DetailView):
+    model = Item
+
