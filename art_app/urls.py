@@ -1,3 +1,5 @@
+#polls in tutorial
+
 from django.urls import path
 from . import views
 

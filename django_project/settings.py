@@ -37,7 +37,7 @@ INSTALLED_APPS = [
     'django.contrib.sessions',
     'django.contrib.messages',
     'django.contrib.staticfiles',
-    'art_app',
+    'art_app.apps.ArtAppConfig',
     'bootstrap5',
 ]
 
