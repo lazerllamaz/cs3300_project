@@ -11,4 +11,4 @@ from .forms import ItemForm
 
 # Default view /home/
 def index(request):
-    return HttpResponse("howdy")
+    return render(request, "art_app/index.html")
