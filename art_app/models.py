@@ -43,7 +43,7 @@ class Item(models.Model):
     
     #Return URL to access specific Item
     def get_absolute_url(self):
-        return reverse('item-detail', args=[str(self.id)])
+        return reverse("item-detail", args=[str(self.id)])
 
     #many-to-one relationship with inventory (many items in 1 inventory)
     inventory = models.ForeignKey(Inventory, on_delete=models.CASCADE)
