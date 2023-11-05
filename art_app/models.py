@@ -12,7 +12,7 @@ class Inventory(models.Model):
     
     #Return URL to access specific Inventory
     def get_absolute_url(self):
-        return reverse('inventory-detail', args=[str(self.id)])
+        return reverse("inventory-detail", args=[str(self.id)])
 
 
 # Create your models here.

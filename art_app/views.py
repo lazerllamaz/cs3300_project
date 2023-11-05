@@ -16,9 +16,6 @@ def index(request):
 class InventoryListView(generic.ListView):
     model = Inventory
 
-class InventoryDetailView(generic.DetailView):
-    model = Inventory
-
 class ItemListView(generic.ListView):
     model = Item
 class ItemDetailView(generic.DetailView):

@@ -7,11 +7,11 @@
         <ul>
         {% for inventory in inventory_list %}
             <li>
-            <a href="/{{ inventory.get_absolute_url }}/">{{ inventory.title }}</a>
+            <a href="{{ inventory.get_absolute_url }}">{{ inventory.title }}</a>
             </li>
         {% endfor %}
         </ul>
     {% else %}
-        <p>This student has no Portfolios.</p>
+        <p>You have no inventories.</p>
     {% endif %}
 {% endblock %}
