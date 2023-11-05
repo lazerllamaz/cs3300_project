@@ -7,8 +7,6 @@ from django.views import generic
 from .models import Inventory, Item
 from .forms import ItemForm
 
-from django.db.models import prefetch_related_objects
-
 # Create your views here.
 
 # Default view /home/

@@ -4,12 +4,8 @@
 
 <!-- Replace block content in base_template.html -->
 {% block content %}
-    <h1>Artists' Corner</h1>
+    <h1>Welcome to the Artists' Trove!</h1>
 
+    <a class="btn btn-primary" href="{% url "inventories" %}" role="button">View Inventories</a>
 
-    <h2>Inventories</h2>
-    <ul class="list-group">
-        <li>1</li>
-        <li>2</li>
-    </ul>
 {% endblock %}
