@@ -7,20 +7,12 @@
 
         <h1>Item: {{ item.name }}</h1>
 
-        <p><strong>Name: </strong> {{ portfolio.contact_email }}</p>
+        <p>
+            <strong>Name: </strong> {{ item.name }} <br>
+            <strong>Quantity: </strong> {{ item.quantity }} <br>
+            <strong>Type: </strong> {{ item.item_Type }}
 
-        {% if item_list %}
-            
-            <ul>
-            {% for item in item_list %}
-                <li>
-                <a href="{{ item.get_absolute_url }}">{{ item.name }}</a>
-                </li>
-            {% endfor %}
-            </ul>
-        {% else %}
-            <p>There are no items in this inventory.</p>
-        {% endif %}
+        </p>
 
     </div>
 {% endblock %}
