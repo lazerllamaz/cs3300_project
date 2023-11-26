@@ -6,6 +6,15 @@
 {% block content %}
     <h1>Welcome to the Artists' Trove!</h1>
     <br>
+    {% if user.is_authenticated %}
+        Welcome, {{ user.username }}!
+    {% else %}
+        <p>You are not logged in</p>
+        <a class="btn btn-primary" href="{% url 'login' %}" role="button">Log In</a>
+        
+    {% endif %}
+
+    <br><br>
     <a class="btn btn-primary" href="{% url "inventories" %}" role="button">View Inventories</a>
 
 {% endblock %}
