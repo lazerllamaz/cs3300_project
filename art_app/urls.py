@@ -19,4 +19,7 @@ urlpatterns = [
 
     #delete item
     path('items/<int:item_id>/delete_item/', views.deleteItem, name='delete-item'),
+
+    #User registration
+    path('register', views.register, name='register')
 ]

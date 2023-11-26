@@ -1,0 +1,14 @@
+{% extends 'art_app/base_template.html' %}
+
+
+{% block content %}
+
+
+<h2>Create New Account</h2>
+<form method="POST">
+    {% csrf_token %}
+    {{ form.as_table }}
+    <button type="submit">Resgister</button>
+</form>
+
+{% endblock %}

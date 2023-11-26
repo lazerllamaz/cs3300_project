@@ -1,13 +1,17 @@
 #polls/views.py in Django tutorial
 
 from django.shortcuts import redirect, render
-from django.http import HttpResponseRedirect, HttpResponse
+from django.conf import settings
+from django.http import HttpResponseRedirect
+from django.contrib.auth import login
+from django.contrib.auth.forms import UserCreationForm
+from django.contrib import messages
 from django.views import generic
 from django.urls import reverse
-from django.template import loader
+
 
 from .models import Inventory, Item
-from .forms import ItemForm
+from .forms import ItemForm, NewUserForm
 
 # Create your views here.
 
@@ -80,3 +84,18 @@ def deleteItem(request, item_id):
     item = Item.objects.get(pk=item_id)
     item.delete()
     return  HttpResponseRedirect(reverse('inventories'))
+
+#register a new user
+def register(request):
+    if request.method == 'POST':
+        form = UserCreationForm()
+        if form.is_valid():
+            form.save()
+            
+            return redirect("registration/login.html")
+    
+    else:
+        form = UserCreationForm()
+    
+    return render(request, 'registration/register.html', context={'form': form})
+   
