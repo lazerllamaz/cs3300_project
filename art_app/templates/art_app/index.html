@@ -7,14 +7,18 @@
     <h1>Welcome to the Artists' Trove!</h1>
     <br>
     {% if user.is_authenticated %}
-        Welcome, {{ user.username }}!
+        Welcome, {{ user.username }}! <br><br>
+        <a class="btn btn-primary" href="{% url "inventories" %}" role="button">View Inventories</a> <br><br>
+        <a class="btn btn-primary" href="{% url 'logout' %}" role="button">Log Out</a>
+
     {% else %}
         <p>You are not logged in</p>
-        <a class="btn btn-primary" href="{% url 'login' %}" role="button">Log In</a>
+        <a class="btn btn-primary" href="{% url 'login' %}" role="button">Log In</a><br><br>
+        <a class="btn btn-primary" href="{% url "inventories" %}" role="button">View Inventories</a>
         
     {% endif %}
 
     <br><br>
-    <a class="btn btn-primary" href="{% url "inventories" %}" role="button">View Inventories</a>
+    
 
 {% endblock %}
