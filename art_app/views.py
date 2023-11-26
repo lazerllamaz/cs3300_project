@@ -1,9 +1,10 @@
 #polls/views.py in Django tutorial
 
 from django.shortcuts import redirect, render
-from django.http import HttpResponseRedirect
+from django.http import HttpResponseRedirect, HttpResponse
 from django.views import generic
 from django.urls import reverse
+from django.template import loader
 
 from .models import Inventory, Item
 from .forms import ItemForm
@@ -54,6 +55,24 @@ def createItem(request, inventory_id):
 
     context = {'form': form}
     return render(request, 'art_app/add_item.html', context)
+
+#edit an item
+def editItem(request, item_id):
+    myItem = Item.objects.get(pk=item_id)
+
+    if request.method == 'POST':
+        form = ItemForm(request.POST, instance=myItem)
+        
+        if form.is_valid():
+            form.save()
+            return redirect('item-detail', myItem.pk)
+    
+    else:
+        form = ItemForm(instance=myItem)
+
+    return render(request,
+                  "art_app/edit_item.html",
+                  {"form": form})
 
 #delete an item
 def deleteItem(request, item_id):

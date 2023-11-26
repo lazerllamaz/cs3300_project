@@ -12,8 +12,11 @@ urlpatterns = [
     path("items/<int:pk>/", views.ItemDetailView.as_view(), name="item-detail"),
 
     #create item form
-    path('inventories/<int:inventory_id>/create_item/', views.createItem, name='create_item'),
+    path('inventories/<int:inventory_id>/create_item/', views.createItem, name='create-item'),
+
+    #Edit item form
+    path('inventories/<int:item_id>/edit_item/', views.editItem, name='edit-item'),
 
     #delete item
-    path('items/<int:item_id>/delete_item/', views.deleteItem, name='delete_item'),
+    path('items/<int:item_id>/delete_item/', views.deleteItem, name='delete-item'),
 ]

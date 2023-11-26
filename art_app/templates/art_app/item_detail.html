@@ -13,6 +13,7 @@
             <strong>Type: </strong> {{ item.item_Type }}
 
         </p>
-        <a class="btn btn-primary" href="{% url 'delete_item' item.id %}" role="button">Delete Item</a>
+        <a class="btn btn-primary" href="{% url 'edit-item' item.id %}" role="button">Edit Item</a>
+        <a class="btn btn-primary" href="{% url 'delete-item' item.id %}" role="button">Delete Item</a>
     </div>
 {% endblock %}
