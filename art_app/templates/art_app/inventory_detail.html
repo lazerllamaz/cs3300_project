@@ -18,5 +18,7 @@
             <p>There are no items in this inventory.</p>
         {% endif %}
 
+        <a class="btn btn-primary" href="{% url 'create_item' inventory.id %}" role="button">New Item</a>
+
     </div>
 {% endblock %}
