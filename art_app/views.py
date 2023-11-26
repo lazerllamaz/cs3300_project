@@ -53,7 +53,7 @@ def createItem(request, inventory_id):
             return redirect('inventory-detail', inventory_id)
 
     context = {'form': form}
-    return render(request, 'art_app/item_form.html', context)
+    return render(request, 'art_app/add_item.html', context)
 
 #delete an item
 def deleteItem(request, item_id):
