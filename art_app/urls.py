@@ -13,4 +13,7 @@ urlpatterns = [
 
     #create item form
     path('inventories/<int:inventory_id>/create_item/', views.createItem, name='create_item'),
+
+    #delete item
+    path('items/<int:item_id>/delete_item/', views.deleteItem, name='delete_item'),
 ]
