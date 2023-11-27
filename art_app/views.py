@@ -38,15 +38,16 @@ class ItemDetailView(generic.DetailView):
 
 #Create an item
 def createItem(request, inventory_id):
-    form = ItemForm()
+    
     inventory = Inventory.objects.get(pk=inventory_id)
 
     if request.method == 'POST':
+
         # Create a new dictionary with form data and inventory_id
         project_data = request.POST.copy()
         project_data['inventory_id'] = inventory_id
         
-        form = ItemForm(project_data)
+        form = ItemForm(project_data, request.FILES)
         if form.is_valid():
             # Save the form without committing to the database
             project = form.save(commit=False)
@@ -56,7 +57,7 @@ def createItem(request, inventory_id):
 
             # Redirect back to the portfolio detail page
             return redirect('inventory-detail', inventory_id)
-
+    form = ItemForm()
     context = {'form': form}
     return render(request, 'art_app/add_item.html', context)
 
@@ -65,7 +66,7 @@ def editItem(request, item_id):
     myItem = Item.objects.get(pk=item_id)
 
     if request.method == 'POST':
-        form = ItemForm(request.POST, instance=myItem)
+        form = ItemForm(request.POST, request.FILES, instance=myItem)
         
         if form.is_valid():
             form.save()

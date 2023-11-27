@@ -6,12 +6,10 @@
 {% block content %}
 
     <h2><strong>Edit Item</strong></h2>
-    <form action="" method="POST">
+    <form method="POST" enctype="multipart/form-data">
 
         {% csrf_token %}
-        <table>
-            {{ form.as_table }}
-        </table>
+        {{ form.as_p }}
         <br>
         <input type="submit" name="Submit">
     </form>
