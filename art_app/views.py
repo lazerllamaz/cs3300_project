@@ -89,11 +89,11 @@ def deleteItem(request, item_id):
 #register a new user
 def register(request):
     if request.method == 'POST':
-        form = UserCreationForm()
+        form = UserCreationForm(request.POST)
         if form.is_valid():
             form.save()
             
-            return redirect("registration/login.html")
+            return redirect("index")
     
     else:
         form = UserCreationForm()
