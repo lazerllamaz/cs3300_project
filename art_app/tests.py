@@ -35,3 +35,5 @@ class ItemDetailViewTest(TestCase):
         self.assertEqual(response.status_code, 200)
         self.assertTemplateUsed(response, 'art_app/item_detail.html')
         self.assertContains(response, 'Test Item')
+
+#testing comment
