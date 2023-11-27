@@ -30,6 +30,7 @@ class Item(models.Model):
     ]
 
     name = models.CharField(max_length=100)
+    item_Img = models.ImageField (upload_to='static/images/', null=True)
     quantity = models.IntegerField(default=1)
     item_Type = models.CharField(
         max_length=10,
