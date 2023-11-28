@@ -36,9 +36,10 @@ class ItemListView(generic.ListView):
 class ItemDetailView(generic.DetailView):
     model = Item
 
-#Create an item
+# Create an item
 def createItem(request, inventory_id):
     
+    # Get related inventory for item
     inventory = Inventory.objects.get(pk=inventory_id)
 
     if request.method == 'POST':
@@ -51,21 +52,22 @@ def createItem(request, inventory_id):
         if form.is_valid():
             # Save the form without committing to the database
             project = form.save(commit=False)
-            # Set the inventory relationship
+            # Set the inventory relationship and save
             project.inventory = inventory
             project.save()
 
-            # Redirect back to the portfolio detail page
+            # Redirect back to the inventory detail page
             return redirect('inventory-detail', inventory_id)
     form = ItemForm()
     context = {'form': form}
     return render(request, 'art_app/add_item.html', context)
 
-#edit an item
+# Edit an existing item
 def editItem(request, item_id):
     myItem = Item.objects.get(pk=item_id)
 
     if request.method == 'POST':
+        # request.FILES is REQUIRED for HTML to accept images
         form = ItemForm(request.POST, request.FILES, instance=myItem)
         
         if form.is_valid():
@@ -75,9 +77,7 @@ def editItem(request, item_id):
     else:
         form = ItemForm(instance=myItem)
 
-    return render(request,
-                  "art_app/edit_item.html",
-                  {"form": form})
+    return render(request, "art_app/edit_item.html", {"form": form})
 
 #delete an item
 def deleteItem(request, item_id):
