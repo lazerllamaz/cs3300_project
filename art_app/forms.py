@@ -9,7 +9,7 @@ from django.contrib.auth.models import User
 class ItemForm(ModelForm):
     class Meta:
         model = Item
-        fields =('name', 'quantity', 'item_Type', 'item_Img')
+        fields = ('name', 'quantity', 'item_Type', 'item_Img')
 
 class NewUserForm(UserCreationForm):
     email = forms.EmailField(required=True)
