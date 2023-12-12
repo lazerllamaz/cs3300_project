@@ -4,6 +4,7 @@
 
 <!-- Replace block content in base_template.html -->
 {% block content %}
+<div class="container-fluid ps-3">
     <h1>Welcome to the Artists' Trove!</h1>
     <br>
     {% if user.is_authenticated %}
@@ -19,6 +20,6 @@
     {% endif %}
 
     <br><br>
-    
+</div>
 
 {% endblock %}
